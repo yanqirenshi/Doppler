@@ -1,4 +1,4 @@
-# Core
+# DOPPLER
 
 https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%83%E3%83%97%E3%83%A9%E3%83%BC%E5%8A%B9%E6%9E%9C
 
@@ -48,6 +48,11 @@ rap すると画面に画像タグを追加します。
 ```
 DOPPLER.rap(code)
 ```
+
+### Memo
+- [区分線形関数 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%8C%BA%E5%88%86%E7%B7%9A%E5%BD%A2%E9%96%A2%E6%95%B0)
+- [連続 - Wikipedia](https://ja.wikipedia.org/wiki/%E9%80%A3%E7%B6%9A_(%E6%95%B0%E5%AD%A6))
+- [曲線 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%9B%B2%E7%B7%9A)
 
 ## Installation
 
