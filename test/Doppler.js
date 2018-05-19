@@ -27,36 +27,58 @@ class Doppler {
         let noises = this._noises;
         return noises[code];
     }
-    /// tag
-    makeNoiseTag (noise) {
-        let uri = noise.uri();
-        let w = noise.w();
-        let h = noise.h();
-        let position = noise.position();
-        let size = noise.size();
-        let style = 'position:fixed;z-index:88888888;'
-            + 'top:'  + position.top
-            + 'left:' + position.left;
-
-        let tag = document.createElement('img');
-        tag.setAttribute('class', 'doppler noise');
-        tag.setAttribute('src', uri);
-        tag.setAttribute('style', style);
-        tag.setAttribute('width', size.w);
-        tag.setAttribute('height', size.h);
-
-        return tag;
+    /// draw and remove
+    draw (noise,counter) {
+        this.stage().appendChild(
+            noise.makeTag(counter));
     }
-    addNoiseTag (noise) {
-        let stage = this.stage();
-        stage.appendChild(noise);
+    findRemoveNoises (noise) {
+        let cls = noise.tagCclass();
+        let tags = document.getElementsByClassName(cls);
+        if (tags.length==0) return [];
+
+        let list = [];
+        let len = tags.length;
+        for (var i=0 ;i<len;i++)
+            list.push(tags[i]);
+
+        return list.sort(function (a, b) {
+            let v1 = a.getAttribute('counter') * 1;
+            let v2 = b.getAttribute('counter') * 1;
+            return v1 < v2 ? -1 : 1;
+        });
+    }
+    remove (noise,counter) {
+        let noises = this.findRemoveNoises(noise);
+        if (noises.length <= 8) return;
+
+        let target = noises[0];
+        target.parentNode.removeChild(target);
     }
     /// main
     startNoise (code) {
+        let counter = 1;
         let noise = this.getNoise(code);
-        let noise_tag = this.makeNoiseTag(noise);
-        this.addNoiseTag(noise_tag);
+        noise.heart = setInterval(() => {
+            counter++;
+            if (counter>88888888)
+                counter = 1;
+
+            if (noise.terminat(counter)) {
+                this.stopNoise(noise);
+                return;
+            }
+
+            this.remove(noise,counter);
+            this.draw(noise,counter);
+        }, noise.bpm());
     }
-    stopNoise () {
+    stopNoise (code_or_nosie) {
+        let noise;
+        if (typeof code_or_nosie == "string")
+            noise = this.getNoise(code_or_nosie);
+        else
+            noise = code_or_nosie;
+        clearInterval(noise.heart);
     }
 }
