@@ -76,6 +76,11 @@ class Noise {
         tag.setAttribute('height', size.h);
         tag.setAttribute('counter', counter);
 
+        tag.addEventListener('click', function(e) {
+            let target = e.target;
+            target.parentNode.removeChild(target);
+        });
+
         return tag;
     }
 }
