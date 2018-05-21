@@ -2,10 +2,6 @@
 
 WEBページに画像を表示したりします。
 
-- 画像を表示する (出来た)
-- ドップラー式によるサイズ変更 (出来てない)
-- 線形/非線形関数による線形上連続表示 (出来てない)
-
 ## Usage
 
 ```js
@@ -48,13 +44,6 @@ html にタグを埋め込むだけ。
 ```html
 <script src="doppler.min.js"></script>
 ```
-
-## Memo
-
-- [ドップラー効果](https://ja.wikipedia.org/wiki/%E3%83%89%E3%83%83%E3%83%97%E3%83%A9%E3%83%BC%E5%8A%B9%E6%9E%9C)
-- [区分線形関数 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%8C%BA%E5%88%86%E7%B7%9A%E5%BD%A2%E9%96%A2%E6%95%B0)
-- [連続 - Wikipedia](https://ja.wikipedia.org/wiki/%E9%80%A3%E7%B6%9A_(%E6%95%B0%E5%AD%A6))
-- [曲線 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%9B%B2%E7%B7%9A)
 
 ## Author
 
