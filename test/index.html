@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html style="background-image: url(http://localhost:8080/doppler/assets/jojo99.jpg);">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Doppler Test</title>
         <link rel="stylesheet" href="./libs/bulma.min.css">
         <script defer src="./libs/fontawesome.js"></script>
-        <script defer src="./libs/common.js"></script>
+
+        <style>
+         html {
+             width:100%;
+             height:100%;
+             background-position: center center;
+             background-repeat: no-repeat;
+             background-attachment: fixed;
+             background-size: cover;
+             background-color: #fefefe;
+         }
+        </style>
     </head>
 
     <body>
-        <script src="./Noise.js"></script>
-        <script src="./Doppler.js"></script>
+        <script src="./config.js"></script>
+        <script src="./doppler.min.js"></script>
         <script src="./index.js"></script>
+
+        <div style="position: fixed;bottom: 22px;right: 22px;">
+            <button class="button" onClick="start_gogo()">ゴゴ</button>
+            <button class="button" onclick="start_dodo()">ドド</button>
+        </div>
+
+        <div style="position: fixed;bottom: 22px;left: 22px;">
+            <button class="button" onClick="change_pic(1)">Pic 1</button>
+            <button class="button" onclick="change_pic(2)">Pic 2</button>
+        </div>
     </body>
 </html>
