@@ -6,7 +6,8 @@ WEBページに画像を表示したりします。
 
 ```js
 let DOPPLER = new Doppler();
-DOPPLER.setNoise(new Noise ({
+
+let dodo = new Noise ({
     code: 'dodo',
     name: 'dodo',
     w: 226,
@@ -33,7 +34,10 @@ DOPPLER.setNoise(new Noise ({
     terminator: (nosie, counter) => {
         return counter > 22;
     }
-}));
+})
+
+DOPPLER.setNoise(dodo);
+
 DOPPLER.startNoise('dodo');
 ```
 
